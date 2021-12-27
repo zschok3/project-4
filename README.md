@@ -12,9 +12,7 @@ This project consists of a web application that is based on RUSA's online calcul
 
 We are essentially replacing the calculator here [https://rusa.org/octime_acp.html](https://rusa.org/octime_acp.html). We can also use that calculator to clarify requirements and develop test data. 
 
-## Getting started
-
-In a nutshell, you will:
+## Tasks
 
 * Implement the logic in `acp_times.py` based on the algorithm linked above.
 
