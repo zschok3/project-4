@@ -1,7 +1,7 @@
 """
 Configure from
-   app.ini (if provided)
-   credentials.ini
+   default.ini
+   credentials.ini (if provided)
    command line  (unless invoked with proxied=True)
 in that order (i.e., in opposite order of precedence).
 
@@ -32,14 +32,16 @@ HERE = os.path.dirname(__file__)
 def command_line_args():
     """Returns namespace with settings from command line"""
     log.debug("-> Command line args")
-    parser = argparse.ArgumentParser(description="ACP Brevet Controle Times")
+    parser = argparse.ArgumentParser(description="CIS 322 Brevets Project")
     parser.add_argument("-D", "--debug", dest="DEBUG",
-                        action="store_true",
+                        action="store_const", const=True,
                         help="Turn on debugging and verbose logging")
-    parser.add_argument("-P", "--port", type=int, dest="PORT", default=5000,
+    parser.add_argument("-P", "--port", type=int, dest="PORT",
                         help="Port for Flask built-in server (only)")
     parser.add_argument("-C", "--config", type=str,
                         help="Alternate configuration file")
+    parser.add_argument("-I", "--input", type=str, dest="INPUT",
+                        help="Input word list")
     cli_args = parser.parse_args()
     log.debug("<- Command line args: {}".format(cli_args))
     return cli_args
@@ -52,7 +54,7 @@ def fake_cli_args():
     with a compatible structure.
     """
     log.debug("-> Fake cli args")
-    parser = argparse.ArgumentParser(description="This is a stub")
+    parser = argparse.ArgumentParser(description="CIS 322 Syllabus Server")
     cli_args = parser.parse_args([])
     log.debug("<- Command line args: {}".format(cli_args))
     return cli_args
