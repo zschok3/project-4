@@ -65,4 +65,3 @@ def close_time(control_dist_km, brevet_dist_km, brevet_start_time):
 
 
 
-print(type(close_time(890, 1000, arrow.get('2021-01-21T00:00'))))
